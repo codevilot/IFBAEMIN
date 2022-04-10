@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    flex-direction: row;
+}
+
+.app.before {
+    height: 500px;
+    width: 500px;
+    margin: 0px 100px;
+    background: blue;
+}
+
+.app.after {
+    height: 500px;
+    width: 500px;
+    margin: 0px 100px;
+    background: red;
+}
+
+/* input sizer */
+.app.before input {
+    width: 100px;
+}
+
+.app span {
+    font-size: 15px;
+}
+
+.app.after input {
+    width: 100px;
+}

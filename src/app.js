@@ -1,6 +1,4 @@
-// import Items from "./components/Items.js";
-
-// Append css .. https://openwiki.kr/tech/javascript_css_append
+import InputSizer from "./components/inputSizer.js";
 const href = "./src/style/style.css";
 const link = document.createElement("link");
 link.rel = "stylesheet";
@@ -11,8 +9,10 @@ document.head.appendChild(link);
 
 class App {
   constructor() {
-    const $app = document.querySelectorAll('.app');
-    // new Items($app);
+    const $app = document.querySelectorAll('.app').forEach((element, index) =>
+      new InputSizer(element)
+    );
+
   }
 }
 
