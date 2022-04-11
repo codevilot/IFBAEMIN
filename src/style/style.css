@@ -8,6 +8,7 @@ body {
     width: 500px;
     margin: 0px 100px;
     background: blue;
+    text-align: center;
 }
 
 .app.after {
@@ -15,6 +16,7 @@ body {
     width: 500px;
     margin: 0px 100px;
     background: red;
+    text-align: center;
 }
 
 /* input sizer */

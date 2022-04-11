@@ -11,6 +11,7 @@ class App {
   constructor() {
     const $app = document.querySelectorAll('.app').forEach((element, index) =>
       new InputSizer(element)
+      
     );
 
   }
