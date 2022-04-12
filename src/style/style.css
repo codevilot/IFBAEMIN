@@ -3,6 +3,11 @@ body {
     flex-direction: row;
 }
 
+main {
+    height: 100%;
+    width: 100%;
+}
+
 .app.before {
     height: 500px;
     width: 500px;
@@ -20,14 +25,12 @@ body {
 }
 
 /* input sizer */
-.app.before input {
-    width: 100px;
+.app.before input,
+.app.after input {
+    width: 50px;
+    display: inline;
 }
 
 .app span {
     font-size: 15px;
-}
-
-.app.after input {
-    width: 100px;
 }
