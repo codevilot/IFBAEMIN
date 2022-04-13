@@ -7,3 +7,5 @@ class app 상단에는, width와 height를 넣으면 app의 사이즈를 조절�
 pc버전은 app.js는 before와 after로 대입되게 만들고, 모바일 버전은, input으로 on/off로 before after 버전 전환.
 
 inputbox change변화 넣을것
+
+추가 계획, State는 proxy로, class는 아직 미정, 로그인은 firebase로
