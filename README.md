@@ -2,10 +2,11 @@
 공부를 위한 배달의 민족 만들어보기
 https://codevilot.github.io/IFBAEMIN/
 
+완성 리스트
+1. 로그인 완료
 
-class app 상단에는, width와 height를 넣으면 app의 사이즈를 조절하게 만들고, 몇 핸드폰 기종의 사이즈는 미리입력되게 해둔다.
-pc버전은 app.js는 before와 after로 대입되게 만들고, 모바일 버전은, input으로 on/off로 before after 버전 전환.
-
-inputbox change변화 넣을것
-
-추가 계획, State는 proxy로, class는 아직 미정, 로그인은 firebase로
+해야할 리스트
+1. Observer Pattern에 로그인 상태 저장
+2. 로그인 상태에 따라서 보여지는 화면 다르게
+3. 가입화면
+4. 본내용

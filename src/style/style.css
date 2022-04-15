@@ -8,29 +8,48 @@ main {
     width: 100%;
 }
 
-.app.before {
+app-container.before {
     height: 500px;
     width: 500px;
-    margin: 0px 100px;
-    background: blue;
+    margin: 0px 20px;
     text-align: center;
 }
 
-.app.after {
+app-container.after {
     height: 500px;
     width: 500px;
-    margin: 0px 100px;
-    background: red;
+    margin: 0px 20px;
     text-align: center;
 }
 
 /* input sizer */
-.app.before input,
-.app.after input {
+input-sizer {
+    padding-bottom: 100px;
+    display: flex;
+}
+
+input-sizer input {
     width: 50px;
     display: inline;
 }
 
-.app span {
+input-sizer span {
     font-size: 15px;
+}
+
+/* container wrap */
+container-wrap {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.before container-wrap {
+
+    border: 1px solid blue;
+}
+
+.after container-wrap {
+
+    border: 1px solid red;
 }
