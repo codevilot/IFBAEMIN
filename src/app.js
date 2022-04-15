@@ -1,5 +1,6 @@
 import InputSizer from "./components/inputSizer.js"
 import Container from "./components/container.js"
+import Header from "./components/header.js"
 const link = document.createElement("link");
 link.rel = "stylesheet";
 link.type = "text/css";
