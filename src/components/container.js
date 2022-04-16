@@ -9,11 +9,12 @@ export default class Container extends HTMLElement {
     connectedCallback() {
 
         this.innerHTML = `
-        <div class="mobile notes20"> </div>
         <header-wrap>
 
         </header-wrap>
         <login-container> </login-container>
+        <body-wrap>
+        </body-wrap>
         `
     }
 

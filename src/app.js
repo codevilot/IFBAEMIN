@@ -1,6 +1,7 @@
-import InputSizer from "./components/inputSizer.js"
+
 import Container from "./components/container.js"
 import Header from "./components/header.js"
+import Body from "./components/body.js"
 const link = document.createElement("link");
 link.rel = "stylesheet";
 link.type = "text/css";
@@ -20,10 +21,9 @@ document.head.appendChild(link);
 class AppContainer extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-    <input-sizer> 
-    </input-sizer>
     <container-wrap>    
     </container-wrap>
+
     `;
 
   }
