@@ -2,8 +2,12 @@
 <html lang="ko">
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <title>IFBAEMIN</title>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script src="/src/server/kakaoaddress.js"></script>
+
   <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase-firestore.js"></script>
@@ -13,9 +17,10 @@
 <body>
   <app-container class="before"> </app-container>
   <app-container class="after"> </app-container>
-  <img src="./src/assets/note20ultra.png" alt="">
   <script src="./src/app.js" type="module"></script>
+
   <script src="./src/server/firebase.js" type="module"></script>
+
 </body>
 
 </html>

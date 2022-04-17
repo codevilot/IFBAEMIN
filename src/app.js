@@ -1,7 +1,7 @@
-
-import Container from "./components/container.js"
-import Header from "./components/header.js"
-import Body from "./components/body.js"
+import Container from "./components/container.js";
+import Header from "./components/header.js";
+import Body from "./components/body.js";
+import Modal from "./components/modal.js";
 const link = document.createElement("link");
 link.rel = "stylesheet";
 link.type = "text/css";
@@ -23,7 +23,8 @@ class AppContainer extends HTMLElement {
     this.innerHTML = `
     <container-wrap>    
     </container-wrap>
-
+    <modal-wrap>
+    </modal-wrap>
     `;
 
   }

@@ -2,8 +2,12 @@
     --grey-color-200: #f2f2f2;
     --grey-color-400: #686b73;
     --mint-color: #2ac1bc;
+    --width-size : 495px;
+    font-size:16px;
 }
-
+body{
+    margin:0;
+}
 h1,
 h2,
 h3,
@@ -28,24 +32,32 @@ main {
 }
 
 app-container {
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     border-right: 5px solid black;
     border-left: 5px solid black;
     border-top: 10px solid black;
     border-bottom: 10px solid black;
-
-    outline: 1px solid pink;
-    width: 495px;
+    width: var(--width-size);
     height: 1064px;
     margin: 50px 20px;
     text-align: center;
-
-
+    position:relative;
+    outline: double;
+    
+    }
+app-container::before{
+    content:"";
+    width:20px;
+    height:20px;
+    position:absolute;
+    background-color:black;
+    z-index:1;
+    border-radius:100%;
+    top:15px;
 }
-
 container-wrap::-webkit-scrollbar {
     display: none;
 }
@@ -64,7 +76,7 @@ header-wrap {
 }
 
 header-wrap .statusbar {
-    height: 50px;
+    height: 3rem;
     display: flex;
     justify-content: space-between;
     color: white;
@@ -151,7 +163,7 @@ container-wrap {
     margin-right: auto;
     position: relative;
     background-color: var(--grey-color-200);
-    width: 495px;
+    width: var(--width-size);
     height: 100%;
 }
 
@@ -361,6 +373,12 @@ slide-container .item2 .thumbnail {
     width: 10rem;
 }
 
+/* modal wrap */
+modal-wrap > div{
+    height:100%;width:100%;bottom:-3rem;position:absolute;left:0;
+        transition:all 1s;
+}
+
 /* footer wrap */
 
 footer-wrap .companyinfo {
@@ -368,11 +386,25 @@ footer-wrap .companyinfo {
     background-color: var(--grey-color-200);
     padding-top: 3rem;
     padding-bottom: 3rem;
-    font-size: 0.65rem;
+    font-size: 0.8rem;
 }
 
 footer-wrap .companyinfo__item+.companyinfo__item::before {
     content: "|";
     padding-left: 0.3rem;
     padding-right: 0.3rem;
+}
+@media screen and (max-width: 1098px) {
+    :root{
+        --width-size:99vw;
+    }   
+    body{
+        overflow-x:hidden;
+    }
+    app-container{
+        height:100%;
+        margin:0;
+        border:none;
+        outline:none;
+    }
 }
