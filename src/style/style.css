@@ -2,12 +2,14 @@
     --grey-color-200: #f2f2f2;
     --grey-color-400: #686b73;
     --mint-color: #2ac1bc;
-    --width-size : 495px;
-    font-size:16px;
+    --width-size: 495px;
+    font-size: 16px;
 }
-body{
-    margin:0;
+
+body {
+    margin: 0;
 }
+
 h1,
 h2,
 h3,
@@ -44,20 +46,22 @@ app-container {
     height: 1064px;
     margin: 50px 20px;
     text-align: center;
-    position:relative;
+    position: relative;
     outline: double;
-    
-    }
-app-container::before{
-    content:"";
-    width:20px;
-    height:20px;
-    position:absolute;
-    background-color:black;
-    z-index:1;
-    border-radius:100%;
-    top:15px;
+
 }
+
+app-container::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background-color: black;
+    z-index: 1;
+    border-radius: 100%;
+    top: 15px;
+}
+
 container-wrap::-webkit-scrollbar {
     display: none;
 }
@@ -374,9 +378,32 @@ slide-container .item2 .thumbnail {
 }
 
 /* modal wrap */
-modal-wrap > div{
-    height:100%;width:100%;bottom:-3rem;position:absolute;left:0;
-        transition:all 1s;
+modal-wrap>div {
+    height: 100%;
+    width: 100%;
+    bottom: -3rem;
+    position: absolute;
+    left: 0;
+    transition: all 1s;
+}
+
+modal-wrap>div>div {
+    max-height: calc(100% - 3rem);
+}
+
+modal-wrap .remove {
+    font-size: 2rem;
+    position: absolute;
+    right: 1rem;
+    top: -2.5rem;
+    width: 3rem;
+    background-color: white;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+
+modal-wrap .remove img {
+    filter: invert(100%);
 }
 
 /* footer wrap */
@@ -394,17 +421,20 @@ footer-wrap .companyinfo__item+.companyinfo__item::before {
     padding-left: 0.3rem;
     padding-right: 0.3rem;
 }
+
 @media screen and (max-width: 1098px) {
-    :root{
-        --width-size:99vw;
-    }   
-    body{
-        overflow-x:hidden;
+    :root {
+        --width-size: 99vw;
     }
-    app-container{
-        height:100%;
-        margin:0;
-        border:none;
-        outline:none;
+
+    body {
+        overflow-x: hidden;
+    }
+
+    app-container {
+        height: 100%;
+        margin: 0;
+        border: none;
+        outline: none;
     }
 }
