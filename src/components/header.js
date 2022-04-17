@@ -32,7 +32,7 @@ export default class Header extends HTMLElement {
         찾아라! 맛있는 음식과 맛집
         </span>
         </div>
-        </a>
+        </a>    
         `
     }
 }
