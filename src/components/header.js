@@ -20,7 +20,7 @@ export default class Header extends HTMLElement {
         </span>
         </div>
         <div class="shortcut"> 
-        <img class="category" src="./src/assets/svg/category.svg">
+        <img class="allmap" src="./src/assets/svg/category.svg">
         <div class="category"> </div>
         <div class="address" id="${this.addresscontainer}" onclick="sample2_execDaumPostcode(${this.class})">서울 송파구 위례성대로 2, 장은빌딩 2층<img class="arrow" src="./src/assets/svg/arrow.svg"> </div>
         <img class="category" src="./src/assets/svg/bell.svg">
@@ -36,6 +36,7 @@ export default class Header extends HTMLElement {
         </a>    
         `
         this.querySelector('.login').onclick = e => modal.querySelector('login-container').classList.toggle('closed');
+        this.querySelector('.allmap').onclick = e =>  {modal.querySelector('.map__container').innerHTML = `<map-list></map-lsit>`;}
     }
 }
 

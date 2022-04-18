@@ -1,5 +1,5 @@
 import Login from "./login.js";
-
+import Maplist from "./maplist.js";
 export default class Modal extends HTMLElement {
     connectedCallback() {
         this.class = 'address' + this.parentElement.className;
@@ -8,6 +8,8 @@ export default class Modal extends HTMLElement {
             <div class="${this.classtoid}" style="height:0%">
             <div id="${this.class}" style="z-index:1;-webkit-overflow-scrolling:touch;">
             </div>
+            </div>
+            <div class="map__container">
             </div>
             <login-container class="closed"> </login-container>
         `

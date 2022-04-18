@@ -1,0 +1,52 @@
+#switch {
+    position: absolute;
+    /* hidden */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  .switch_label {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    width: 2rem;
+    height: 0.6rem;
+    background: #fff;
+    top:0.1rem;
+    /* border: 2px solid #daa; */
+    border-radius: 20rem;
+    transition: 0.2s;
+    margin-left:0.3rem;
+    margin-right:0.3rem;
+  }
+  .switch_label:hover {
+    background: #efefef;
+  }
+  .onf_btn {
+    position: absolute;
+    top : -0.2rem;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 1rem;
+    background: #daa;
+    transition: 0.2s;
+  }
+  
+  /* checking style */
+  #switch:checked+.switch_label {
+    background: #c44;
+    /* border: 2px solid #c44; */
+  }
+  
+  #switch:checked+.switch_label:hover {
+    background: #e55;
+  }
+  
+  /* move */
+  #switch:checked+.switch_label .onf_btn {
+    left: 1rem;
+    background: #fff;
+    box-shadow: 1px 2px 3px #00000020;
+  }
