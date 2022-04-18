@@ -25,7 +25,6 @@ loginForm.addEventListener('submit', (e) => {
     });
 });
 
-//로그인 체크 확인
 auth.onAuthStateChanged((user) => {
     console.log("not login")
     if (user) {

@@ -1,5 +1,3 @@
-import Login from "./login.js";
-
 
 export default class Container extends HTMLElement {
     constructor() {
@@ -10,9 +8,7 @@ export default class Container extends HTMLElement {
 
         this.innerHTML = `
         <header-wrap>
-
         </header-wrap>
-        <login-container> </login-container>
         <body-wrap>
         </body-wrap>
         `

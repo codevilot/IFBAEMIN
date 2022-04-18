@@ -48,7 +48,7 @@ app-container {
     text-align: center;
     position: relative;
     outline: double;
-
+    overflow:hidden;
 }
 
 app-container::before {
@@ -90,6 +90,15 @@ header-wrap .statusbar {
 }
 
 header-wrap .category {
+    filter: brightness(0) invert(1);
+    width: 1.7rem;
+    height: 1.7rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    padding-bottom: 0.6rem;
+    padding-top: 0.6rem;
+}
+header-wrap .login {
     filter: brightness(0) invert(1);
     width: 1.7rem;
     height: 1.7rem;
@@ -172,11 +181,6 @@ container-wrap {
 }
 
 
-
-
-login-container {
-    display: none;
-}
 
 /* body wrap */
 body-wrap .menu {
@@ -391,21 +395,25 @@ modal-wrap>div>div {
     max-height: calc(100% - 3rem);
 }
 
-modal-wrap .remove {
-    font-size: 2rem;
-    position: absolute;
-    right: 1rem;
-    top: -2.5rem;
-    width: 3rem;
-    background-color: white;
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
-}
+
 
 modal-wrap .remove img {
     filter: invert(100%);
 }
+login-container.closed{
+    visibility: hidden;
+    right: -100%;
 
+}
+login-container{
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    bottom: -3rem;
+    position: absolute;
+    right: 0;
+    transition: all 1s;
+}
 /* footer wrap */
 
 footer-wrap .companyinfo {
@@ -420,6 +428,16 @@ footer-wrap .companyinfo__item+.companyinfo__item::before {
     content: "|";
     padding-left: 0.3rem;
     padding-right: 0.3rem;
+}
+.remove {
+    font-size: 2rem;
+    position: absolute;
+    right: 1rem;
+    top: -2.5rem;
+    width: 3rem;
+    background-color: white;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
 }
 
 @media screen and (max-width: 1098px) {

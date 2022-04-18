@@ -10,14 +10,6 @@ const head = document.getElementsByTagName("head");
 document.head.appendChild(link);
 // CSS SET
 
-
-// export const globalState = new Proxy(
-//   {
-//     height: 500,
-//     width: 500,
-//   }
-// );
-
 class AppContainer extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `

@@ -1,6 +1,7 @@
 export default class Login extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
+        <div class="remove"><img src="//t1.daumcdn.net/postcode/resource/images/close.png"> </div>
         <form id="login-form">
         <div class="input-field">
             <input type="email" id="login-email" class="validate" required />
@@ -22,6 +23,7 @@ export default class Login extends HTMLElement {
         </a>
         </div>
         `;
+        this.querySelector('.remove').onclick = e => this.classList.toggle('closed');
     }
 }
 

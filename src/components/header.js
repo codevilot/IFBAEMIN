@@ -1,6 +1,7 @@
 export default class Header extends HTMLElement {
 
     connectedCallback() {
+        const modal = this.parentElement.parentElement.querySelector('modal-wrap');
         this.time = new Date();
         this.y = this.time.getFullYear();
         this.m1 = this.time.getMonth() ===12 ? this.time.getMonth():this.time.getMonth()+1 ;
@@ -23,7 +24,7 @@ export default class Header extends HTMLElement {
         <div class="category"> </div>
         <div class="address" id="${this.addresscontainer}" onclick="sample2_execDaumPostcode(${this.class})">서울 송파구 위례성대로 2, 장은빌딩 2층<img class="arrow" src="./src/assets/svg/arrow.svg"> </div>
         <img class="category" src="./src/assets/svg/bell.svg">
-        <img class="category" src="./src/assets/svg/tongue.svg">
+        <img class="login" src="./src/assets/svg/tongue.svg">
         </div>
         <a>
         <div class="searchbox">
@@ -34,6 +35,7 @@ export default class Header extends HTMLElement {
         </div>
         </a>    
         `
+        this.querySelector('.login').onclick = e => modal.querySelector('login-container').classList.toggle('closed');
     }
 }
 
