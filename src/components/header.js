@@ -4,12 +4,12 @@ export default class Header extends HTMLElement {
         const modal = this.parentElement.parentElement.querySelector('modal-wrap');
         this.time = new Date();
         this.y = this.time.getFullYear();
-        this.m1 = this.time.getMonth() ===12 ? this.time.getMonth():this.time.getMonth()+1 ;
+        this.m1 = this.time.getMonth() === 12 ? this.time.getMonth() : this.time.getMonth() + 1;
         this.d = this.time.getDate();
-        this.h = this.time.getHours() <=9? '0'+this.time.getHours():''+this.time.getHours();
+        this.h = this.time.getHours() <= 9 ? '0' + this.time.getHours() : '' + this.time.getHours();
         this.m2 = this.time.getMinutes() <= 9 ? '0' + this.time.getMinutes() : '' + this.time.getMinutes();
-        this.addresscontainer = 'classtoid' +this.parentElement.parentElement.className;
-        this.class = "address"+this.parentElement.parentElement.className;
+        this.addresscontainer = 'classtoid' + this.parentElement.parentElement.className;
+        this.class = "address" + this.parentElement.parentElement.className;
         this.innerHTML = `
         <div class="statusbar">
         <span class="time">
@@ -36,7 +36,14 @@ export default class Header extends HTMLElement {
         </a>    
         `
         this.querySelector('.login').onclick = e => modal.querySelector('login-container').classList.toggle('closed');
-        this.querySelector('.allmap').onclick = e =>  {modal.querySelector('.map__container').innerHTML = `<map-list></map-lsit>`;}
+        this.querySelector('.allmap').onclick = e => {
+            const mapcontainer = modal.querySelector('.map__container');
+            mapcontainer.innerHTML = `<map-list></map-lsit>`;
+            mapcontainer.classList.add('open')
+
+
+
+        }
     }
 }
 

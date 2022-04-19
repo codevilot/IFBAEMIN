@@ -48,7 +48,7 @@ app-container {
     text-align: center;
     position: relative;
     outline: double;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 app-container::before {
@@ -98,6 +98,7 @@ header-wrap .allmap {
     padding-bottom: 0.6rem;
     padding-top: 0.6rem;
 }
+
 header-wrap .category {
     filter: brightness(0) invert(1);
     width: 1.7rem;
@@ -107,6 +108,7 @@ header-wrap .category {
     padding-bottom: 0.6rem;
     padding-top: 0.6rem;
 }
+
 header-wrap .login {
     filter: brightness(0) invert(1);
     width: 1.7rem;
@@ -403,7 +405,8 @@ slide-container .item2 .thumbnail {
 modal-wrap>div>div {
     max-height: calc(100% - 3rem);
 } */
-modal-wrap .classtoidbefore, modal-wrap .classtoidafter {
+modal-wrap .classtoidbefore,
+modal-wrap .classtoidafter {
     height: 100%;
     width: 100%;
     bottom: -3rem;
@@ -412,28 +415,55 @@ modal-wrap .classtoidbefore, modal-wrap .classtoidafter {
     transition: all 0.5s;
 }
 
-modal-wrap #addressbefore, modal-wrap #addressafter {
+modal-wrap #addressbefore,
+modal-wrap #addressafter {
     max-height: calc(100% - 3rem);
 }
 
 modal-wrap .remove img {
     filter: invert(100%);
 }
-map-list{
-    top:0;
-    height: 100%;
+
+/* modal map list */
+.map__container.open {
+    top: 3rem;
+    height: calc(100% - 3rem);
     width: 100%;
-    background-color:white;
+    left: 0;
+    background-color: white;
     position: absolute;
     left: 0;
     transition: all 0.5s;
 }
-login-container.closed{
+
+.map__container {
+    left: -50%;
+    transition: all 0.5s;
+}
+
+map-list .maphead {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    padding-top: 0.7rem;
+}
+
+map-list .arrow,
+map-list .blank {
+    width: 1.7rem;
+    height: 1.7rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+}
+
+
+login-container.closed {
     visibility: hidden;
     right: -100%;
 
 }
-login-container{
+
+login-container {
     background-color: white;
     height: 100%;
     width: 100%;
@@ -442,6 +472,7 @@ login-container{
     right: 0;
     transition: all 0.5s;
 }
+
 /* footer wrap */
 
 footer-wrap .companyinfo {
@@ -457,6 +488,7 @@ footer-wrap .companyinfo__item+.companyinfo__item::before {
     padding-left: 0.3rem;
     padding-right: 0.3rem;
 }
+
 .remove {
     font-size: 2rem;
     position: absolute;
@@ -467,7 +499,10 @@ footer-wrap .companyinfo__item+.companyinfo__item::before {
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
 }
-.baswitch{display:none;}
+
+.baswitch {
+    display: none;
+}
 
 @media screen and (max-width: 1098px) {
     :root {
@@ -475,7 +510,7 @@ footer-wrap .companyinfo__item+.companyinfo__item::before {
     }
 
     body {
-     width:200%;   
+        width: 200%;
     }
 
     app-container {
@@ -484,27 +519,35 @@ footer-wrap .companyinfo__item+.companyinfo__item::before {
         border: none;
         outline: none;
     }
-    app-container::before{
-        display:none;
+
+    app-container::before {
+        display: none;
     }
-    .baswitch{
-        display:flex;
+
+    .baswitch {
+        display: flex;
         align-items: center;
-        position:absolute;
-        top:0.7rem;
-        color:white;
-        left :50%;
+        position: absolute;
+        top: 0.7rem;
+        color: white;
+        left: 50%;
         transform: translateX(-50%);
     }
-    .before, .after{
+
+    .before,
+    .after {
         transition: all 0.5s;
     }
-    .before.off, .after{
-        left:-50%;
+
+    .before.off,
+    .after {
+        left: -50%;
 
     }
-    .before, .after.off{
-        left:0%;
+
+    .before,
+    .after.off {
+        left: 0%;
     }
 
 }
