@@ -1,6 +1,13 @@
 :root {
-    --grey-color-200: #f2f2f2;
-    --grey-color-400: #686b73;
+    --grey-color-100:#F3F3F3;
+    --grey-color-200: #E7E7E7;
+    --grey-color-300:#DCDCDC;
+    --grey-color-400:#CCCCCC;
+    --grey-color-500:#C4C4C4;
+    --grey-color-600:#AAA9A9;
+    --grey-color-700:#767676;
+    --grey-color-800:#4E4E4E;
+    --grey-color-900:#272727;
     --mint-color: #2ac1bc;
     --width-size: 495px;
     font-size: 16px;
@@ -9,7 +16,7 @@
 body {
     margin: 0;
 }
-
+/* selector default s */
 h1,
 h2,
 h3,
@@ -17,7 +24,11 @@ h4,
 h5 {
     margin: 0;
 }
-
+ul, li{
+    list-style:none;
+    padding:0;
+}
+/* selector default e */
 @font-face {
     font-family: hanna;
     src: url(../assets/fonts/BMHANNA.ttf);
@@ -446,6 +457,7 @@ map-list .maphead {
     display: flex;
     flex-direction: row;
     padding-top: 0.7rem;
+    padding-bottom:2.4rem;
 }
 
 map-list .arrow,
@@ -455,8 +467,35 @@ map-list .blank {
     padding-left: 0.7rem;
     padding-right: 0.7rem;
 }
+map-list .delivery__list{
+    display:flex;
+    border-bottom:1px solid var(--grey-color-200);
+    padding-bottom:0.7rem;
+}
+map-list .delivery__item{
+font-family:hanna;
+font-size: 2rem;
+font-weight:bold;
+color : var(--grey-color-400);
+padding-left:0.5rem;
+padding-right:0.5rem;
+margin-left:1rem;
+margin-right:1rem;
+}
+map-list .delivery__item.seleted{
+    color:black;
+    position:relative;
+}
+map-list .delivery__item.seleted::after{
+    content:'';
+    height:4px;
+    background-color:black;
+    width:100%;
+    position:absolute;
+    bottom:-0.7rem;
+    left:0;
 
-
+}
 login-container.closed {
     visibility: hidden;
     right: -100%;
