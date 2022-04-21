@@ -1,9 +1,10 @@
 import Login from "./login.js";
 import Maplist from "./maplist.js";
+import Mypage from "./mypage.js";
 export default class Modal extends HTMLElement {
     connectedCallback() {
-        this.class = 'address' + this.parentElement.className;
-        this.classtoid = 'classtoid' + this.parentElement.className;
+        this.class = 'address' + this.parentElement.id;
+        this.classtoid = 'classtoid' + this.parentElement.id;
         this.innerHTML = `
             <div class="${this.classtoid}" style="height:0%">
             <div id="${this.class}" style="z-index:1;-webkit-overflow-scrolling:touch;">
@@ -11,7 +12,8 @@ export default class Modal extends HTMLElement {
             </div>
             <div class="map__container">
             </div>
-            <login-container class="closed"> </login-container>
+            <div class="my__page">
+            </div>
         `
     }
 

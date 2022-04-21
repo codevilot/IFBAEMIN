@@ -2,7 +2,6 @@
 export default class Container extends HTMLElement {
     constructor() {
         super();
-        // console.log(auth)
     }
     connectedCallback() {
 

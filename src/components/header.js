@@ -1,3 +1,4 @@
+import { auth } from "../server/firebase.js"
 export default class Header extends HTMLElement {
 
     connectedCallback() {
@@ -8,8 +9,8 @@ export default class Header extends HTMLElement {
         this.d = this.time.getDate();
         this.h = this.time.getHours() <= 9 ? '0' + this.time.getHours() : '' + this.time.getHours();
         this.m2 = this.time.getMinutes() <= 9 ? '0' + this.time.getMinutes() : '' + this.time.getMinutes();
-        this.addresscontainer = 'classtoid' + this.parentElement.parentElement.className;
-        this.class = "address" + this.parentElement.parentElement.className;
+        this.addresscontainer = 'classtoid' + this.parentElement.parentElement.id;
+        this.class = "address" + this.parentElement.parentElement.id;
         this.innerHTML = `
         <div class="statusbar">
         <span class="time">
@@ -35,15 +36,31 @@ export default class Header extends HTMLElement {
         </div>
         </a>    
         `
-        this.querySelector('.login').onclick = e => modal.querySelector('login-container').classList.toggle('closed');
+
+        this.querySelector('.login').onclick = e => {
+            const mypage = modal.querySelector('.my__page')
+            mypage.innerHTML = `<mypage-wrap></mypage-wrap>`
+            // const loginForm = modal.querySelector('login-container');
+            // loginForm.addEventListener('submit', (e) => {
+            //     e.preventDefault();
+            //     const errMsg = document.querySelector('#loginMsg')
+            //     console.log(loginForm.querySelector('#login-email').value)
+            //     const email = loginForm.querySelector('#login-email').value;
+            //     const password = loginForm.querySelector('#login-password').value;
+            //     auth.signInWithEmailAndPassword(email, password).then((cred) => {
+            //     }).catch((err) => {
+            //         errMsg.innerHTML = (err.message);
+            //     });
+            // });
+            mypage.classList.add('open')
+        }
+
         this.querySelector('.allmap').onclick = e => {
             const mapcontainer = modal.querySelector('.map__container');
             mapcontainer.innerHTML = `<map-list></map-lsit>`;
             mapcontainer.classList.add('open')
-
-
-
         }
+
     }
 }
 

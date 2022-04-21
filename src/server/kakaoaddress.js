@@ -26,7 +26,7 @@ function sample2_execDaumPostcode(element_layer) {
                     extraAddr = ' (' + extraAddr + ')';
                 }
 
-                document.getElementById(element_layer.parentElement.className).innerHTML = addr + extraAddr + `<img class="arrow" src="./src/assets/svg/arrow.svg">`;
+                document.getElementById(element_layer.parentElement.id).innerHTML = addr + extraAddr + `<img class="arrow" src="./src/assets/svg/arrow.svg">`;
 
             } else {
                 document.getElementById(element_layer).value = '';
@@ -41,7 +41,7 @@ function sample2_execDaumPostcode(element_layer) {
     element_layer.parentElement.style.height = '100%';
     const x = document.createElement('div');
     x.innerHTML = `<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer"    onclick="closeDaumPostcode(${element_layer.id})" >`;
-    element_layer.appendChild(x).classList.add('remove');
+    element_layer.appendChild(x).classList.add('x');
     initLayerPosition(element_layer);
 }
 

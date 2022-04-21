@@ -18,13 +18,13 @@ AFTER
 `
 const chb = baswitch.querySelector('#switch');
 
-chb.addEventListener('change', function(){
+chb.addEventListener('change', function () {
 
-    if(this.checked){
-        document.querySelector('.before').classList.add('off');
-        document.querySelector('.after').classList.remove('off');
-    }else{
-        document.querySelector('.after').classList.add('off');
-        document.querySelector('.before').classList.remove('off');
+    if (this.checked) {
+        document.querySelector('#before').classList.add('off');
+        document.querySelector('#after').classList.remove('off');
+    } else {
+        document.querySelector('#after').classList.add('off');
+        document.querySelector('#before').classList.remove('off');
     }
-} )
+})

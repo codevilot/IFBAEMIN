@@ -9,22 +9,8 @@ var config = {
     measurementId: "G-LN1CCXNQ79"
 };
 firebase.initializeApp(config);
-
-const auth = firebase.auth();
-const db = firebase.firestore();
-const loginForm = document.querySelector('login-container');
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const errMsg = document.querySelector('#loginMsg')
-    console.log(loginForm.querySelector('#login-email').value)
-    const email = loginForm.querySelector('#login-email').value;
-    const password = loginForm.querySelector('#login-password').value;
-    auth.signInWithEmailAndPassword(email, password).then((cred) => {
-    }).catch((err) => {
-        errMsg.innerHTML = (err.message);
-    });
-});
-
+export const auth = firebase.auth();
+export const db = firebase.firestore();
 auth.onAuthStateChanged((user) => {
     console.log("not login")
     if (user) {
