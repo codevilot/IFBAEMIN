@@ -1,11 +1,9 @@
-import { auth, db } from "../server/firebase.js"
+import { auth } from "../server/firebase.js"
 export default class Mypage extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-
         <div class="maphead">
         <img class="arrow remove" src="./src/assets/svg/leftarrow.svg">
-        
         <h3 class="title">
         My배민
         </h3>
@@ -23,9 +21,36 @@ export default class Mypage extends HTMLElement {
         </div>
         <img class="move" src="./src/assets/svg/rightarrow.svg">
         </div>
-
+        <div class="childbox">
+        </div>
         `;
+        
+        this.querySelector('.myprofile').onclick = e => {
+            if(!auth.currentUser){
+                const childbox = this.querySelector('.childbox')
+                childbox.innerHTML = `<login-container> </login-container>`
+                childbox.classList.add('open');
+                // login in set
+                const loginForm = childbox.querySelector('login-container');
+                    loginForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const errMsg = document.querySelector('#loginMsg')
+                        console.log(loginForm.querySelector('#login-email').value)
+                        const email = loginForm.querySelector('#login-email').value;
+                        const password = loginForm.querySelector('#login-password').value;
+                        auth.signInWithEmailAndPassword(email, password).then((cred) => {
+                        }).catch((err) => {
+                            errMsg.innerHTML = (err.message);
+                        });
+                    });
+
+            }else{
+                //my profile
+                // this.querySelector('.childbox').innerHTML = ``
+            }
+        } 
         this.querySelector('.arrow').onclick = e => this.parentElement.classList.remove('open');
+        
     }
 }
 

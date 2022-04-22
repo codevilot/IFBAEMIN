@@ -19,7 +19,6 @@ AFTER
 const chb = baswitch.querySelector('#switch');
 
 chb.addEventListener('change', function () {
-
     if (this.checked) {
         document.querySelector('#before').classList.add('off');
         document.querySelector('#after').classList.remove('off');

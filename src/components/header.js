@@ -40,18 +40,7 @@ export default class Header extends HTMLElement {
         this.querySelector('.login').onclick = e => {
             const mypage = modal.querySelector('.my__page')
             mypage.innerHTML = `<mypage-wrap></mypage-wrap>`
-            // const loginForm = modal.querySelector('login-container');
-            // loginForm.addEventListener('submit', (e) => {
-            //     e.preventDefault();
-            //     const errMsg = document.querySelector('#loginMsg')
-            //     console.log(loginForm.querySelector('#login-email').value)
-            //     const email = loginForm.querySelector('#login-email').value;
-            //     const password = loginForm.querySelector('#login-password').value;
-            //     auth.signInWithEmailAndPassword(email, password).then((cred) => {
-            //     }).catch((err) => {
-            //         errMsg.innerHTML = (err.message);
-            //     });
-            // });
+            const loginForm = modal.querySelector('login-container');
             mypage.classList.add('open')
         }
 
