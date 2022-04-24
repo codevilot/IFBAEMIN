@@ -1,6 +1,7 @@
 import Login from "./login.js";
 import Maplist from "./maplist.js";
 import Mypage from "./mypage.js";
+import Store from "./storelist.js"
 export default class Modal extends HTMLElement {
     connectedCallback() {
         this.class = 'address' + this.parentElement.id;
@@ -13,6 +14,8 @@ export default class Modal extends HTMLElement {
             <div class="map__container">
             </div>
             <div class="my__page">
+            </div>
+            <div class="store__list">
             </div>
         `
     }

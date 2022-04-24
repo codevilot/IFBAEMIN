@@ -468,6 +468,7 @@ modal-wrap .x img {
     right: -50%;
     transition: all 0.5s;
     visibility: hidden;
+    height:0;
 }
 
 
@@ -487,6 +488,7 @@ modal-wrap .x img {
     left: -50%;
     transition: all 0.5s;
     visibility: hidden;
+    height:0;
 }
 /* mypage */
 
@@ -515,7 +517,8 @@ mypage-wrap .info .down {
 }
 
 map-list .maphead,
-mypage-wrap .maphead {
+mypage-wrap .maphead,
+store-list .maphead {
     justify-content: space-between;
     display: flex;
     flex-direction: row;
@@ -527,7 +530,9 @@ mypage-wrap .maphead {
 map-list .arrow,
 map-list .blank,
 mypage-wrap .arrow,
-mypage-wrap .blank {
+mypage-wrap .blank,
+store-list .arrow,
+store-list .blank {
     width: 1.7rem;
     height: 1.7rem;
     padding-left: 0.7rem;
@@ -638,6 +643,36 @@ mypage-wrap .childbox.open{
 mypage-wrap .childbox{
     right: -50%;
     visibility: hidden;
+}
+/* store list */
+.store__list.open {
+    top: 3rem;
+    height: calc(100vh - 3rem);
+    width: 100%;
+    left: 0%;
+    position: absolute;
+    transition: all 0.5s;
+    background-color: white;
+    visibility: visible;
+}
+.store__list{
+    left: -50%;
+    transition: all 0.5s;
+    visibility: hidden;
+    height: 0;
+}
+store-list .menu__board{
+    display:flex;
+    flex-direction:row;
+    overflow-x:scroll;
+    width: max-content;
+}
+store-list .menu__item{
+    font-size:1.2rem;
+    padding-left:1rem;
+    padding-right:1rem;
+    font-weight:bold;
+
 }
 /* login-container */
 login-container input{

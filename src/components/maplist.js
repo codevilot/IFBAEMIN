@@ -24,32 +24,28 @@ export default class Maplist extends HTMLElement {
         <div class="category">
         <ul class="menu__board">
         <li class="menu__item">
-        <img class="food" src="./src/assets/svg/sushi.svg">
+        <img class="food sushi" src="./src/assets/svg/sushi.svg">
         돈까스·회·일식
         </li>
         <li class="menu__item">
-        <img class="food" src="./src/assets/svg/sushi.svg">
+        <img class="food" src="./src/assets/svg/noodle.svg">
         중식
         </li>
         <li class="menu__item">
-        <img class="food" src="./src/assets/svg/sushi.svg">
+        <img class="food" src="./src/assets/svg/chicken.svg">
         치킨
         </li>
         <li class="menu__item">
-        <img class="food" src="./src/assets/svg/sushi.svg">
+        <img class="food" src="./src/assets/svg/rice.svg">
         백반·죽·국수
         </li>
         <li class="menu__item">
-        <img class="food" src="./src/assets/svg/sushi.svg">
+        <img class="food" src="./src/assets/svg/cupcake.svg">
         카페·디저트
         </li>
         <li class="menu__item">
-        <img class="food" src="./src/assets/svg/sushi.svg">
+        <img class="food" src="./src/assets/svg/curry.svg">
         분식
-        </li>
-        <li class="menu__item">
-        <img class="food" src="./src/assets/svg/sushi.svg">
-        찜·탕·찌개
         </li>
         </ul>
         </div>
@@ -59,7 +55,10 @@ export default class Maplist extends HTMLElement {
         </a>
         </div>
         `;
+        const storelist= this.parentElement.parentElement.querySelector('.store__list');
         this.querySelector('.arrow').onclick = e => this.parentElement.classList.remove('open');
+        this.querySelector('.sushi').onclick = e => {storelist.innerHTML = `<store-list></store-list>`
+                                                     storelist.classList.add('open')};
     }
 }
 customElements.define('map-list', Maplist);

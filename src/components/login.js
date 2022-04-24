@@ -46,10 +46,10 @@ export default class Login extends HTMLElement {
         </div>
         `;
         this.querySelector('.arrow').onclick = e => this.parentElement.classList.remove('open');
-        this.querySelector('.loginanchor').onclick = e =>{ this.querySelector('.loginform').classList.add('off')
-                                                            this.querySelector('.signform').classList.remove('off')};
-        this.querySelector('.signanchor').onclick = e =>{ this.querySelector('.loginform').classList.remove('off')
-                                                 this.querySelector('.signform').classList.add('off')};
+        this.querySelector('.loginanchor').onclick = e =>{ this.querySelector('.loginform').classList.add('off');
+                                                           this.querySelector('.signform').classList.remove('off')};
+        this.querySelector('.signanchor').onclick = e =>{ this.querySelector('.loginform').classList.remove('off');
+                                                          this.querySelector('.signform').classList.add('off')};
     }
 }
 
