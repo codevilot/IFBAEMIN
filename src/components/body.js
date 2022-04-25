@@ -15,7 +15,7 @@ export default class Body extends HTMLElement {
         <div class="blank">
         </div>
         </div>
-        <div class ="flex1 flexbox delivery1">   
+        <div class ="flex1 flexbox delivery1 blind">   
         <div class="title">
         배민1
         </div>
@@ -26,7 +26,7 @@ export default class Body extends HTMLElement {
         <div class="blank">
         </div>
         </div>
-        <div class ="flex2 flexbox pickup">   
+        <div class ="flex2 flexbox pickup blind">   
         <div class="title">
         포장
         </div>
@@ -34,7 +34,7 @@ export default class Body extends HTMLElement {
         가까운 가게는 직접 가지러 가지요
         </div>
         </div>
-        <div class ="flex1 flexbox bmart">   
+        <div class ="flex1 flexbox bmart blind">   
         <div class="title">
         B마트
         </div>
@@ -44,7 +44,7 @@ export default class Body extends HTMLElement {
         </div>
 
         </div>
-        <div class ="flex1 flexbox convi">   
+        <div class ="flex1 flexbox convi blind">   
         <div class="title">
         간편식
         </div>

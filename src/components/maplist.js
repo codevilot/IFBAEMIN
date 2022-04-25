@@ -16,7 +16,7 @@ export default class Maplist extends HTMLElement {
         <li class="seleted delivery__item">
         배달
         </li>
-        <li class="delivery__item">
+        <li class="delivery__item blind">
             포장
         </li>
         </ul>
@@ -55,10 +55,12 @@ export default class Maplist extends HTMLElement {
         </a>
         </div>
         `;
-        const storelist= this.parentElement.parentElement.querySelector('.store__list');
+        const storelist = this.parentElement.parentElement.querySelector('.store__list');
         this.querySelector('.arrow').onclick = e => this.parentElement.classList.remove('open');
-        this.querySelector('.sushi').onclick = e => {storelist.innerHTML = `<store-list></store-list>`
-                                                     storelist.classList.add('open')};
+        this.querySelector('.sushi').onclick = e => {
+            storelist.innerHTML = `<store-list></store-list>`
+            storelist.classList.add('open')
+        };
     }
 }
 customElements.define('map-list', Maplist);

@@ -9,8 +9,13 @@
     --grey-color-800: #4E4E4E;
     --grey-color-900: #272727;
     --mint-color: #2ac1bc;
-    --width-size: 495px;
-    font-size: 16px;
+    /* --width-size: 496px;
+    --height-size: 1064px; 
+        font-size: 16px;*/
+    --width-size: 373px;
+    --height-size: 800px;
+    --max-height-size: 100%;
+    font-size: 14px;
 }
 
 body {
@@ -65,8 +70,8 @@ app-container {
     border-top: 10px solid black;
     border-bottom: 10px solid black;
     width: var(--width-size);
-    height: 1064px;
-    margin: 50px 20px;
+    height: var(--height-size);
+    margin: 1rem 20px;
     text-align: center;
     position: relative;
     outline: double;
@@ -93,7 +98,8 @@ container-wrap::-webkit-scrollbar {
 
 /* header wrap */
 header-wrap {
-    width:var(--width-size);
+    z-index: 10;
+    width: var(--width-size);
     height: fit-content;
     padding-bottom: 1.6rem;
     background-color: var(--mint-color);
@@ -102,7 +108,7 @@ header-wrap {
 }
 
 header-wrap .statusbar {
-    width:var(--width-size);
+    width: var(--width-size);
     box-sizing: border-box;
     height: 3rem;
     display: flex;
@@ -111,8 +117,8 @@ header-wrap .statusbar {
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 0.7rem;
-    position:fixed;
-    background-color:var(--mint-color);
+    position: fixed;
+    background-color: var(--mint-color);
 }
 
 header-wrap .allmap {
@@ -146,7 +152,7 @@ header-wrap .login {
 }
 
 header-wrap .shortcut {
-    width:var(--width-size);
+    width: var(--width-size);
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -154,10 +160,10 @@ header-wrap .shortcut {
     place-content: center;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    padding-bottom:0.5rem;
-    position:fixed;
-    margin-top:3rem;
-    background-color:var(--mint-color);
+    padding-bottom: 0.5rem;
+    position: fixed;
+    margin-top: 3rem;
+    background-color: var(--mint-color);
 }
 
 header-wrap .address {
@@ -205,8 +211,7 @@ header-wrap .arrow {
 /* container wrap */
 
 container-wrap {
-    width:var(--width-size);
-    height: 1063px;
+    width: var(--width-size);
     -ms-overflow-style: none;
     /* IE and Edge */
     scrollbar-width: none;
@@ -427,24 +432,25 @@ slide-container .item2 .thumbnail {
 /* modal wrap */
 modal-wrap .classtoidbefore,
 modal-wrap .classtoidafter {
+    z-index: 20;
     height: 100%;
     width: 100%;
-    top : 5rem;
-        position: absolute;
+    top: 2rem;
+    position: absolute;
     left: 0;
     transition: all 0.5s;
 }
 
 modal-wrap #addressbefore,
 modal-wrap #addressafter {
-    max-height: calc(100% - 3rem);
+    max-height: calc(100%);
 }
 
 modal-wrap .x {
-    top:3rem;
-    font-size: 2rem;
+    top: 3rem;
+    font-size: 0rem;
     position: fixed;
-    width: 100%;
+    width: var(--width-size);
     background-color: white;
 }
 
@@ -461,14 +467,14 @@ modal-wrap .x img {
     position: absolute;
     transition: all 0.5s;
     background-color: white;
-    visibility:visible;
+    visibility: visible;
 }
 
 .my__page {
     right: -50%;
     transition: all 0.5s;
     visibility: hidden;
-    height:0;
+    height: 0;
 }
 
 
@@ -488,11 +494,12 @@ modal-wrap .x img {
     left: -50%;
     transition: all 0.5s;
     visibility: hidden;
-    height:0;
+    height: 0;
 }
+
 /* mypage */
 
-mypage-wrap > .maphead {
+mypage-wrap>.maphead {
     border-bottom: 1px solid var(--grey-color-400)
 }
 
@@ -553,6 +560,7 @@ map-list .delivery__item {
     color: var(--grey-color-400);
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    padding-top: 0.5rem;
     margin-left: 1rem;
     margin-right: 1rem;
 }
@@ -630,7 +638,8 @@ mypage-wrap .myprofile .move {
     align-self: center;
     filter: brightness(10) grayscale(1);
 }
-mypage-wrap .childbox.open{
+
+mypage-wrap .childbox.open {
     top: 0rem;
     height: calc(100% - 3rem);
     width: 100%;
@@ -640,10 +649,12 @@ mypage-wrap .childbox.open{
     background-color: white;
     visibility: visible;
 }
-mypage-wrap .childbox{
+
+mypage-wrap .childbox {
     right: -50%;
     visibility: hidden;
 }
+
 /* store list */
 .store__list.open {
     top: 3rem;
@@ -655,68 +666,85 @@ mypage-wrap .childbox{
     background-color: white;
     visibility: visible;
 }
-.store__list{
+
+.store__list {
     left: -50%;
     transition: all 0.5s;
     visibility: hidden;
     height: 0;
 }
-store-list .menu__board{
-    display:flex;
-    flex-direction:row;
-    overflow-x:scroll;
+
+store-list .menu__board {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
     width: max-content;
 }
-store-list .menu__item{
-    font-size:1.2rem;
-    padding-left:1rem;
-    padding-right:1rem;
-    font-weight:bold;
+
+store-list .menu__item {
+    font-size: 1.2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-weight: bold;
 
 }
+
 /* login-container */
-login-container input{
-    width:90%;
+login-container input {
+    width: 90%;
     border-top: none;
-    border-left:none;
-    border-right:none;
+    border-left: none;
+    border-right: none;
     border-bottom: 1px solid var(--grey-color-300);
     height: 3rem;
-    outline:none;
+    outline: none;
 }
-login-container input:active,login-container input:active:hover, login-container input:focus-visible{
-    border-bottom:1px solid var(--grey-color-700);
-}
-login-container input::placeholder{
-    font-size:1.2rem;
-    color:var(--grey-color-500)
-}
-login-color input:active{
-    border-top: none;
-    border-left:none;
-    border-right:none;
+
+login-container input:active,
+login-container input:active:hover,
+login-container input:focus-visible {
     border-bottom: 1px solid var(--grey-color-700);
 }
-login-container .login-sumit, login-container .sign-sumit{
-    background-color:var(--mint-color);
-    border:none;
-    width:90%;
-    height:3rem;
-    color:white;
-    font-size:1rem;
-    margin-top:1rem;
+
+login-container input::placeholder {
+    font-size: 1.2rem;
+    color: var(--grey-color-500)
 }
-login-container .tosign, login-container .tologin{
-    margin-top:1rem;
+
+login-color input:active {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid var(--grey-color-700);
 }
-login-container .tosign .loginanchor, login-container .tologin .signanchor{
+
+login-container .login-sumit,
+login-container .sign-sumit {
+    background-color: var(--mint-color);
+    border: none;
+    width: 90%;
+    height: 3rem;
+    color: white;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+login-container .tosign,
+login-container .tologin {
+    margin-top: 1rem;
+}
+
+login-container .tosign .loginanchor,
+login-container .tologin .signanchor {
     text-decoration: none;
-    color:var(--mint-color);
-    font-weight:bold;
+    color: var(--mint-color);
+    font-weight: bold;
 }
-login-container .off{
-    display:none;
+
+login-container .off {
+    display: none;
 }
+
 /* footer wrap */
 
 footer-wrap .companyinfo {
@@ -733,7 +761,23 @@ footer-wrap .companyinfo__item+.companyinfo__item::before {
     padding-right: 0.3rem;
 }
 
+.delivery__item.blind {
+    background-color: azure;
+}
 
+.category.blind {
+    background-color: cadetblue;
+    border-radius: 100%;
+    filter: brightness(0.5);
+}
+
+.blind {
+    filter: brightness(0.5);
+}
+
+.open {
+    z-index: 20;
+}
 
 .baswitch {
     display: none;
@@ -761,7 +805,7 @@ footer-wrap .companyinfo__item+.companyinfo__item::before {
     }
 
     .baswitch {
-        position:fixed;
+        position: fixed;
         background-color: var(--mint-color);
         display: flex;
         align-items: center;
@@ -795,5 +839,11 @@ footer-wrap .companyinfo__item+.companyinfo__item::before {
 
     app-container {
         border-radius: 0;
+    }
+
+    modal-wrap .x {
+        right: 0;
+        top: 0rem;
+        font-size: 2rem;
     }
 }

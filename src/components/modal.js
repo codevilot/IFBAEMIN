@@ -8,7 +8,7 @@ export default class Modal extends HTMLElement {
         this.classtoid = 'classtoid' + this.parentElement.id;
         this.innerHTML = `
             <div class="${this.classtoid}" style="height:0%">
-            <div id="${this.class}" style="z-index:1;-webkit-overflow-scrolling:touch;">
+            <div id="${this.class}" style="-webkit-overflow-scrolling:touch;">
             </div>
             </div>
             <div class="map__container">
