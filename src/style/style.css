@@ -689,13 +689,67 @@ store-list .menu__item {
 
 }
 
+store-list .store__box {
+    display: flex;
+    flex-direction: row;
+    padding-left: 1rem;
+    padding-top: 1rem;
+}
+
+store-list .store__img {
+    width: 6.5rem;
+    height: 6.5rem;
+}
+
+store-list .store__name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+store-list .coupon {
+    font-size: 0.8rem;
+    color: white;
+    background: orange;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+}
+
+store-list .store__info {
+    text-align: left;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 1rem;
+}
+
+store-list .store__info * {
+    padding-bottom: 0.3rem;
+}
+
+store-list .store__time {
+    background-color: var(--grey-color-100);
+    width: max-content;
+    border-radius: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+store-list .store__inner__menu {
+    color: var(--grey-color-500);
+}
+
 /* login-container */
 login-container input {
     width: 90%;
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid var(--grey-color-300);
+    border-bottom: 1px solid var(--grey-color-700);
     height: 3rem;
     outline: none;
 }
@@ -789,7 +843,6 @@ footer-wrap .companyinfo__item+.companyinfo__item::before {
     }
 
     body {
-        /* width: 200%; */
         width: 100%;
     }
 
