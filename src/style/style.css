@@ -585,7 +585,7 @@ map-list .menu__board {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-map-list .menu__board .food {
+map-list .menu__board img {
     padding: 0.5rem;
 }
 

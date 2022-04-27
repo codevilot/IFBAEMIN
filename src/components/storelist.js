@@ -1,6 +1,10 @@
+import { globalState, observable } from "../server/observer.js";
 import { db } from "../server/firebase.js"
 export default class Store extends HTMLElement {
     connectedCallback() {
+        this.category = globalState.category;
+        console.log(globalState.category)
+        observable.subscribe(this.category);
         this.innerHTML = `
         <div class="maphead">
         <img class="arrow" src="./src/assets/svg/leftarrow.svg">
