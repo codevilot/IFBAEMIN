@@ -28,7 +28,7 @@ export default class Maplist extends HTMLElement {
         돈까스·회·일식
         </li>
         <li class="menu__item">
-        <img src="./src/assets/svg/noodle.svg">
+        <img class="china" src="./src/assets/svg/noodle.svg">
         중식
         </li>
         <li class="menu__item">
@@ -57,7 +57,7 @@ export default class Maplist extends HTMLElement {
         `;
         const storelist = this.parentElement.parentElement.querySelector('.store__list');
         this.querySelector('.menu__board').onclick = e => {
-            // globalState.category = e.target.classList[0];
+            globalState.category = e.target.classList[0];
             storelist.innerHTML = `<store-list></store-list>`
             storelist.classList.add('open')
         }
