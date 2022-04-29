@@ -13,7 +13,6 @@ export default class Store extends HTMLElement {
         <div class="blank">
         </div>
         </div>
-        <div class="menu__board_wrap">
         <ul class="menu__board">
         <li class="sushi menu__item">
         돈까스·회·일식
@@ -34,8 +33,9 @@ export default class Store extends HTMLElement {
         분식
         </li>
         </ul>
-        </div>
+        <div class="stores__wrap">
         <div class="stores">
+        </div>
         </div>
         `
 

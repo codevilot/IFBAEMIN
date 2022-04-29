@@ -664,16 +664,16 @@ mypage-wrap .childbox {
 }
 
 /* store list */
+
 .store__list.open {
     top: 3rem;
-    height: calc(100vh - 3rem);
+    height: fit-content;
     width: var(--width-size);
     left: 0%;
     position: absolute;
     transition: all 0.5s;
     background-color: white;
     visibility: visible;
-    overflow-y: scroll;
 }
 
 .store__list {
@@ -682,7 +682,10 @@ mypage-wrap .childbox {
     visibility: hidden;
     height: 0;
 }
-
+.stores__wrap{
+    height:calc( var(--height-size) - 10.3rem );
+    overflow-y:scroll;
+}
 store-list .menu__board__wrap {
     width: var(--width-size);
     overflow-x: scroll;
