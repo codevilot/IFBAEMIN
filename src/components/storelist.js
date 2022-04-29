@@ -13,7 +13,7 @@ export default class Store extends HTMLElement {
         <div class="blank">
         </div>
         </div>
-
+        <div class="menu__board_wrap">
         <ul class="menu__board">
         <li class="sushi menu__item">
         돈까스·회·일식
@@ -34,6 +34,7 @@ export default class Store extends HTMLElement {
         분식
         </li>
         </ul>
+        </div>
         <div class="stores">
         </div>
         `
@@ -43,14 +44,14 @@ export default class Store extends HTMLElement {
             this.querySelector('.title').innerHTML = globalState.category;
             listMake();
         }
-    
-        const listAdd =() =>{
-        db.collection("store").where("category", "==", this.category).get().then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                const div = document.createElement('div');
-                this.querySelector('.stores').appendChild(div)
-                div.classList.add('store__box')
-                div.innerHTML = `<img class="store__img" src="https://picsum.photos/200"> 
+
+        const listAdd = () => {
+            db.collection("store").where("category", "==", this.category).get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    const div = document.createElement('div');
+                    this.querySelector('.stores').appendChild(div)
+                    div.classList.add('store__box')
+                    div.innerHTML = `<img class="store__img" src="https://picsum.photos/200"> 
                 <div class="store__info">
                 <div class="store__name">${doc.data().name}${doc.data().coupon ? `<span class="coupon">쿠폰</span>` : ""}</div> 
                 <div>⭐ ${doc.data().score} <span class="store__inner__menu">${doc.data().menu}</span></div>
@@ -58,9 +59,10 @@ export default class Store extends HTMLElement {
                 <div class="store__time">🕒 ${doc.data().time}</div>
                 </div> 
                 `
+                });
             });
-        });}
-        const listMake =() =>{
+        }
+        const listMake = () => {
             const stores = this.querySelector('.stores');
             stores.innerHTML = ``;
             db.collection("store").where("category", "==", globalState.category).get().then((querySnapshot) => {
@@ -68,7 +70,7 @@ export default class Store extends HTMLElement {
                     const div = document.createElement('div');
                     stores.appendChild(div);
                     div.classList.add('store__box');
-                    div.innerHTML = `<img class="store__img" src="https://picsum.photos/200"> 
+                    div.innerHTML = `<img class="store__img" src="../src/assets/store/${doc.data().thumbnail}"> 
                     <div class="store__info">
                     <div class="store__name">${doc.data().name}${doc.data().coupon ? `<span class="coupon">쿠폰</span>` : ""}</div> 
                     <div>⭐ ${doc.data().score} <span class="store__inner__menu">${doc.data().menu}</span></div>
@@ -77,7 +79,8 @@ export default class Store extends HTMLElement {
                     </div> 
                     `
                 });
-            });}
+            });
+        }
         listMake();
     }
 }

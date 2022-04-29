@@ -1,4 +1,13 @@
 :root {
+    --yellow-color-100: #FEF2D9;
+    --yellow-color-200: #FDE4B4;
+    --yellow-color-300: #FDD78E;
+    --yellow-color-400: #FCC969;
+    --yellow-color-500: #FBBC43;
+    --yellow-color-600: #C99636;
+    --yellow-color-700: #977128;
+    --yellow-color-800: #644B1B;
+    --yellow-color-900: #32260D;
     --grey-color-100: #F3F3F3;
     --grey-color-200: #E7E7E7;
     --grey-color-300: #DCDCDC;
@@ -211,7 +220,6 @@ header-wrap .arrow {
 /* container wrap */
 
 container-wrap {
-    width: var(--width-size);
     -ms-overflow-style: none;
     /* IE and Edge */
     scrollbar-width: none;
@@ -659,12 +667,13 @@ mypage-wrap .childbox {
 .store__list.open {
     top: 3rem;
     height: calc(100vh - 3rem);
-    width: 100%;
+    width: var(--width-size);
     left: 0%;
     position: absolute;
     transition: all 0.5s;
     background-color: white;
     visibility: visible;
+    overflow-y: scroll;
 }
 
 .store__list {
@@ -674,10 +683,14 @@ mypage-wrap .childbox {
     height: 0;
 }
 
+store-list .menu__board__wrap {
+    width: var(--width-size);
+    overflow-x: scroll;
+}
+
 store-list .menu__board {
     display: flex;
     flex-direction: row;
-    overflow-x: scroll;
     width: max-content;
 }
 
@@ -694,6 +707,9 @@ store-list .store__box {
     flex-direction: row;
     padding-left: 1rem;
     padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--grey-color-200);
+
 }
 
 store-list .store__img {
@@ -708,12 +724,12 @@ store-list .store__name {
     align-items: center;
 }
 
-store-list .coupon {
+store-list .store__name .coupon {
     font-size: 0.8rem;
     color: white;
-    background: orange;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    background-color: var(--yellow-color-500);
+    padding: 0.2rem 0.7rem;
+
     border-radius: 1rem;
     margin-left: 0.5rem;
 }
@@ -728,7 +744,7 @@ store-list .store__info {
 }
 
 store-list .store__info * {
-    padding-bottom: 0.3rem;
+    padding-bottom: 0.5rem;
 }
 
 store-list .store__time {
