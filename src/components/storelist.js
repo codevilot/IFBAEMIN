@@ -44,29 +44,12 @@ export default class Store extends HTMLElement {
             this.querySelector('.title').innerHTML = globalState.category;
             listMake();
         }
+        let limit = 0;
+        const listAdd = (lm) => {
+            db.collection("store").where("category", "==", globalState.category).orderBy("thumbnail").startAfter(`${!lm ? 0 : lm}`).limit(5).get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
 
-        const listAdd = () => {
-            db.collection("store").where("category", "==", this.category).get().then((querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    const div = document.createElement('div');
-                    this.querySelector('.stores').appendChild(div)
-                    div.classList.add('store__box')
-                    div.innerHTML = `<img class="store__img" src="https://picsum.photos/200"> 
-                <div class="store__info">
-                <div class="store__name">${doc.data().name}${doc.data().coupon ? `<span class="coupon">쿠폰</span>` : ""}</div> 
-                <div>⭐ ${doc.data().score} <span class="store__inner__menu">${doc.data().menu}</span></div>
-                ${doc.data().least || doc.data().fee ? (`<div>${doc.data().least ? "최소주문" + doc.data().least : ""} ${doc.data().fee ? ", 배달팁" + doc.data().fee : ""} </div>`) : ""}
-                <div class="store__time">🕒 ${doc.data().time}</div>
-                </div> 
-                `
-                });
-            });
-        }
-        const listMake = () => {
-            const stores = this.querySelector('.stores');
-            stores.innerHTML = ``;
-            db.collection("store").where("category", "==", globalState.category).get().then((querySnapshot) => {
-                querySnapshot.forEach((doc) => {
+                    const stores = this.querySelector('.stores');
                     const div = document.createElement('div');
                     stores.appendChild(div);
                     div.classList.add('store__box');
@@ -79,9 +62,23 @@ export default class Store extends HTMLElement {
                     </div> 
                     `
                 });
+
+ 
             });
+            return  5 + lm
+        }
+ 
+        const listMake = () => {
+            const stores = this.querySelector('.stores');
+            stores.innerHTML = ``;
+            console.log(limit)
+            limit =listAdd(limit);
+            console.log(limit)
+            limit = listAdd(limit);
+            console.log(limit)
         }
         listMake();
+
     }
 }
 customElements.define('store-list', Store);
