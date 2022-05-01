@@ -46,9 +46,9 @@ export default class Store extends HTMLElement {
         }
         let limit = 0;
         const listAdd = (lm) => {
-            db.collection("store").where("category", "==", globalState.category).orderBy("thumbnail").startAfter(`${!lm ? 0 : lm}`).limit(5).get().then((querySnapshot) => {
+            db.collection("store").where("category", "==", globalState.category).orderBy("s").startAt(lm).limit(5).get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
-
+                    console.log(doc)
                     const stores = this.querySelector('.stores');
                     const div = document.createElement('div');
                     stores.appendChild(div);
@@ -62,8 +62,6 @@ export default class Store extends HTMLElement {
                     </div> 
                     `
                 });
-
- 
             });
             return  5 + lm
         }
@@ -71,13 +69,15 @@ export default class Store extends HTMLElement {
         const listMake = () => {
             const stores = this.querySelector('.stores');
             stores.innerHTML = ``;
-            console.log(limit)
-            limit =listAdd(limit);
-            console.log(limit)
+            console.log(limit, 1, typeof limit)
             limit = listAdd(limit);
-            console.log(limit)
+
         }
-        listMake();
+        listMake()
+        this.querySelector('.arrow').onclick = e => {listAdd(limit);console.log(limit, 2, typeof limit)};
+
+
+
 
     }
 }
