@@ -885,6 +885,7 @@ footer-wrap .companyinfo__item+.companyinfo__item::before {
         color: white;
         left: 50%;
         transform: translateX(-50%);
+        z-index:10;
     }
 
     #before,

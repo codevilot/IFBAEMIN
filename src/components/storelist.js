@@ -1,5 +1,6 @@
 import { globalState, observable } from "../server/observer.js";
 import { db } from "../server/firebase.js"
+import {createObserver} from "./oi.js"
 export default class Store extends HTMLElement {
     connectedCallback() {
         observable.subscribe(globalState.category);
@@ -53,7 +54,7 @@ export default class Store extends HTMLElement {
                     const div = document.createElement('div');
                     stores.appendChild(div);
                     div.classList.add('store__box');
-                    div.innerHTML = `<img class="store__img" src="../src/assets/store/${doc.data().thumbnail}"> 
+                    div.innerHTML = `<img class="store__img" src="https://github.com/codevilot/IFBAEMIN/blob/main/src/assets/store/${doc.data().thumbnail}?raw=true"> 
                     <div class="store__info">
                     <div class="store__name">${doc.data().name}${doc.data().coupon ? `<span class="coupon">쿠폰</span>` : ""}</div> 
                     <div>⭐ ${doc.data().score} <span class="store__inner__menu">${doc.data().menu}</span></div>
@@ -63,22 +64,19 @@ export default class Store extends HTMLElement {
                     `
                 });
             });
+            console.log(lm)
             return  5 + lm
         }
  
         const listMake = () => {
             const stores = this.querySelector('.stores');
+            limit = 0;
             stores.innerHTML = ``;
-            console.log(limit, 1, typeof limit)
             limit = listAdd(limit);
 
         }
         listMake()
-        this.querySelector('.arrow').onclick = e => {listAdd(limit);console.log(limit, 2, typeof limit)};
-
-
-
-
+        this.querySelector('.arrow').onclick = e => {listAdd(limit);};
     }
 }
 customElements.define('store-list', Store);
