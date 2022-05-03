@@ -1,6 +1,6 @@
 import { globalState, observable } from "../server/observer.js";
 import { db } from "../server/firebase.js"
-import {createObserver} from "./oi.js"
+import { createObserver } from "./oi.js"
 export default class Store extends HTMLElement {
     connectedCallback() {
         observable.subscribe(globalState.category);
@@ -37,9 +37,12 @@ export default class Store extends HTMLElement {
         <div class="stores__wrap">
         <div class="stores">
         </div>
+        <div class="oi preload">
         </div>
         `
-
+        const oi = this.querySelector('.oi')
+        const cont = this.querySelector('store-list')
+        const preload = this.querySelector('.preload')
         this.querySelector('.menu__board').onclick = e => {
             globalState.category = e.target.classList[0];
             this.querySelector('.title').innerHTML = globalState.category;
@@ -49,12 +52,13 @@ export default class Store extends HTMLElement {
         const listAdd = (lm) => {
             db.collection("store").where("category", "==", globalState.category).orderBy("s").startAt(lm).limit(5).get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
-                    console.log(doc)
+                    // console.log(doc)
                     const stores = this.querySelector('.stores');
                     const div = document.createElement('div');
                     stores.appendChild(div);
                     div.classList.add('store__box');
-                    div.innerHTML = `<img class="store__img" src="https://github.com/codevilot/IFBAEMIN/blob/main/src/assets/store/${doc.data().thumbnail}?raw=true"> 
+                    div.innerHTML =
+                        `<img class="store__img" src="https://github.com/codevilot/IFBAEMIN/blob/main/src/assets/store/${doc.data().thumbnail}?raw=true"> 
                     <div class="store__info">
                     <div class="store__name">${doc.data().name}${doc.data().coupon ? `<span class="coupon">쿠폰</span>` : ""}</div> 
                     <div>⭐ ${doc.data().score} <span class="store__inner__menu">${doc.data().menu}</span></div>
@@ -65,18 +69,28 @@ export default class Store extends HTMLElement {
                 });
             });
             console.log(lm)
-            return  5 + lm
+            return 5 + lm
         }
- 
+
         const listMake = () => {
             const stores = this.querySelector('.stores');
-            limit = 0;
-            stores.innerHTML = ``;
+            // limit = 0;
+            if (limit === 0) {
+                stores.innerHTML = ``;
+            }
+
             limit = listAdd(limit);
+        }
+        const objCont = (cont, oi) => {
+            preload.classList.remove('preload');
+            createObserver(cont, oi, listMake())
 
         }
-        listMake()
-        this.querySelector('.arrow').onclick = e => {listAdd(limit);};
+        // listMake()
+        this.querySelector('.arrow').onclick = e => { listAdd(limit); };
+        window.addEventListener('load', objCont)
+        window.onload = window.addEventListener('load', objCont(cont, oi))
+
     }
 }
 customElements.define('store-list', Store);

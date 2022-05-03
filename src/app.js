@@ -9,7 +9,6 @@ link.href = "./src/style/style.css";
 const head = document.getElementsByTagName("head");
 document.head.appendChild(link);
 // CSS SET
-
 class AppContainer extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -18,7 +17,6 @@ class AppContainer extends HTMLElement {
     <modal-wrap>
     </modal-wrap>
     `;
-
   }
 }
 

@@ -682,10 +682,12 @@ mypage-wrap .childbox {
     visibility: hidden;
     height: 0;
 }
-.stores__wrap{
-    height:calc( var(--height-size) - 10.3rem );
-    overflow-y:scroll;
+
+.stores__wrap {
+    height: calc(var(--height-size) - 10.3rem);
+    overflow-y: scroll;
 }
+
 store-list .menu__board__wrap {
     width: var(--width-size);
     overflow-x: scroll;
@@ -856,6 +858,14 @@ footer-wrap .companyinfo__item+.companyinfo__item::before {
     display: none;
 }
 
+.oi {
+    height: 50px;
+}
+
+.oi.preload {
+    display: none;
+}
+
 @media screen and (max-width: 1098px) {
     :root {
         --width-size: 100vw;
@@ -885,7 +895,7 @@ footer-wrap .companyinfo__item+.companyinfo__item::before {
         color: white;
         left: 50%;
         transform: translateX(-50%);
-        z-index:10;
+        z-index: 10;
     }
 
     #before,
