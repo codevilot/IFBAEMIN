@@ -1,8 +1,7 @@
 import { globalState } from "../server/observer.js";
 export default class Maplist extends HTMLElement {
-    connectedCallback() {
-
-        this.innerHTML = `
+  connectedCallback() {
+    this.innerHTML = `
         <div class="maphead">
         <img class="arrow" src="./src/assets/svg/leftarrow.svg">
         <h3 class="title">
@@ -55,14 +54,15 @@ export default class Maplist extends HTMLElement {
         </a>
         </div>
         `;
-        const storelist = this.parentElement.parentElement.querySelector('.store__list');
-        this.querySelector('.menu__board').onclick = e => {
-            globalState.category = e.target.classList[0];
-            storelist.innerHTML = `<store-list></store-list>`
-            storelist.classList.add('open')
-        }
-        this.querySelector('.arrow').onclick = e => this.parentElement.classList.remove('open');
-
-    }
+    const storelist =
+      this.parentElement.parentElement.querySelector(".store__list");
+    this.querySelector(".menu__board").onclick = (e) => {
+      globalState.category = e.target.classList[0];
+      storelist.innerHTML = `<store-list></store-list>`;
+      storelist.classList.add("open");
+    };
+    this.querySelector(".arrow").onclick = (e) =>
+      this.parentElement.classList.remove("open");
+  }
 }
-customElements.define('map-list', Maplist);
+customElements.define("map-list", Maplist);
