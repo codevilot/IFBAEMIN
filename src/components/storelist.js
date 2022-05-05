@@ -46,8 +46,12 @@ export default class Store extends HTMLElement {
     const preload = this.querySelector(".preload");
     this.limit = 0;
     this.querySelector(".menu__board").onclick = (e) => {
-      globalState.category = e.target.classList[0];
+      const stores = this.querySelector(".stores");
       this.querySelector(".title").innerHTML = globalState.category;
+      this.limit = 0;
+      globalState.category = e.target.classList[0];
+      stores.innerHTML = ``;
+
       //   listMake();
     };
     const listAdd = () => {
@@ -95,22 +99,16 @@ export default class Store extends HTMLElement {
       this.limit += 5;
     };
 
-    // const listMake = () => {
-    //   const stores = this.querySelector(".stores");
-
-    //   if (globalState.page === 0) {
-    //     stores.innerHTML = ``;
-    //   }
-
-    //   globalState.page = listAdd(globalState.page);
-    // };
     const objCont = (cont, oi) => {
       preload.classList.remove("preload");
       createObserver(cont, oi);
     };
-    // this.querySelector(".arrow").onclick = (e) => {
-    //   listAdd(globalState.page);
-    // };
+    this.querySelector(".arrow").onclick = (e) => {
+      this.limit = 0;
+      this.parentElement.classList.remove("open");
+      this.parentElement.innerHTML = ``;
+      console.log(this.limit);
+    };
     window.addEventListener("load", objCont);
     window.onload = window.addEventListener("load", objCont(cont, oi));
     observable.subscribe(listAdd);
