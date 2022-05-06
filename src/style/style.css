@@ -673,7 +673,7 @@ mypage-wrap .childbox {
 }
 
 .stores__wrap {
-  height: calc(var(--height-size) - 10rem);
+  height: calc(var(--height-size) - 11rem);
   overflow-y: scroll;
 }
 
