@@ -30,20 +30,20 @@ export default class Maplist extends HTMLElement {
         <img class="china" src="./src/assets/svg/noodle.svg">
         중식
         </li>
-        <li class="menu__item">
-        <img src="./src/assets/svg/chicken.svg">
+        <li class="ban menu__item">
+        <img class="ban" src="./src/assets/svg/chicken.svg">
         치킨
         </li>
-        <li class="menu__item">
-        <img src="./src/assets/svg/rice.svg">
+        <li class="ban menu__item">
+        <img class="ban" src="./src/assets/svg/rice.svg">
         백반·죽·국수
         </li>
-        <li class="menu__item">
-        <img src="./src/assets/svg/cupcake.svg">
+        <li class="ban menu__item">
+        <img class="ban" src="./src/assets/svg/cupcake.svg">
         카페·디저트
         </li>
-        <li class="menu__item">
-        <img src="./src/assets/svg/curry.svg">
+        <li class="ban menu__item">
+        <img class="ban" src="./src/assets/svg/curry.svg">
         분식
         </li>
         </ul>
@@ -57,9 +57,12 @@ export default class Maplist extends HTMLElement {
     const storelist =
       this.parentElement.parentElement.querySelector(".store__list");
     this.querySelector(".menu__board").onclick = (e) => {
-      globalState.category = e.target.classList[0];
-      storelist.innerHTML = `<store-list></store-list>`;
-      storelist.classList.add("open");
+      const targetClass = e.target.classList[0];
+      if (targetClass !== "ban") {
+        globalState.category = e.target.classList[0];
+        storelist.innerHTML = `<store-list></store-list>`;
+        storelist.classList.add("open");
+      }
     };
     this.querySelector(".arrow").onclick = (e) =>
       this.parentElement.classList.remove("open");

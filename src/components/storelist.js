@@ -1,6 +1,7 @@
 import { globalState, observable } from "../server/observer.js";
 import { db } from "../server/firebase.js";
 import { createObserver } from "./oi.js";
+import debounce from "./debounce.js";
 export default class Store extends HTMLElement {
   connectedCallback() {
     // observable.subscribe(globalState.category);
@@ -22,16 +23,16 @@ export default class Store extends HTMLElement {
         <li class="china menu__item">
         중식
         </li>
-        <li class="menu__item">
+        <li class="ban menu__item">
         치킨
         </li>
-        <li class="menu__item">
+        <li class="ban menu__item">
         백반·죽·국수
         </li>
-        <li class="menu__item">
+        <li class="ban menu__item">
         카페·디저트
         </li>
-        <li class="menu__item">
+        <li class="ban menu__item">
         분식
         </li>
         </ul>
@@ -46,13 +47,14 @@ export default class Store extends HTMLElement {
     const preload = this.querySelector(".preload");
     this.limit = 0;
     this.querySelector(".menu__board").onclick = (e) => {
-      const stores = this.querySelector(".stores");
-      this.querySelector(".title").innerHTML = globalState.category;
-      this.limit = 0;
-      globalState.category = e.target.classList[0];
-      stores.innerHTML = ``;
-
-      //   listMake();
+      const targetClass = e.target.classList[0];
+      if (targetClass !== "ban") {
+        const stores = this.querySelector(".stores");
+        this.querySelector(".title").innerHTML = globalState.category;
+        this.limit = 0;
+        globalState.category = e.target.classList[0];
+        stores.innerHTML = ``;
+      }
     };
     const listAdd = () => {
       db.collection("store")
@@ -111,7 +113,7 @@ export default class Store extends HTMLElement {
     };
     window.addEventListener("load", objCont);
     window.onload = window.addEventListener("load", objCont(cont, oi));
-    observable.subscribe(listAdd);
+    observable.subscribe(debounce(listAdd));
   }
 }
 customElements.define("store-list", Store);
