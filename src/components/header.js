@@ -55,6 +55,12 @@ export default class Header extends HTMLElement {
       mapcontainer.innerHTML = `<map-list></map-lsit>`;
       mapcontainer.classList.add("open");
     };
+
+    this.querySelector(".searchbox").onclick = (e) => {
+      const searchcontainer = modal.querySelector(".search__container");
+      searchcontainer.innerHTML = `<search-wrap></search-wrap>`
+      searchcontainer.classList.add("open");
+    }
   }
 }
 

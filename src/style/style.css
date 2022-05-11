@@ -247,7 +247,7 @@ body-wrap .flex1 {
   width: calc(50% - 0.5rem);
 }
 
-body-wrap .flex1 + .flex1 {
+body-wrap .flex1+.flex1 {
   margin-left: 1rem;
 }
 
@@ -499,7 +499,7 @@ modal-wrap .x img {
 
 /* mypage */
 
-mypage-wrap > .maphead {
+mypage-wrap>.maphead {
   border-bottom: 1px solid var(--grey-color-400);
 }
 
@@ -520,6 +520,14 @@ mypage-wrap .info .up {
 mypage-wrap .info .down {
   font-size: 2rem;
   font-family: hanna;
+}
+
+search-wrap .maphead {
+  display: flex;
+  flex-direction: row;
+  padding-top: 0.7rem;
+  margin-bottom: 1.7rem;
+  padding-bottom: 0.7rem;
 }
 
 map-list .maphead,
@@ -586,9 +594,11 @@ map-list .menu__board {
 map-list .menu__board img {
   padding: 0.5rem;
 }
+
 map-list .menu__board .ban {
   background-color: var(--grey-color-700);
 }
+
 map-list .menu__board .menu__item {
   display: flex;
   flex-direction: column;
@@ -654,6 +664,40 @@ mypage-wrap .childbox {
   visibility: hidden;
 }
 
+/* search container */
+.search__container.open {
+  top: 3rem;
+  height: calc(100vh - 3rem);
+  width: 100%;
+  right: 0%;
+  position: absolute;
+  transition: all 0.5s;
+  background-color: white;
+  visibility: visible;
+}
+
+
+
+.search__container {
+  right: -50%;
+  transition: all 0.5s;
+  visibility: hidden;
+  height: 0;
+}
+
+.search__container .arrow {
+  padding-left: 1rem;
+}
+
+.search__container .search__store {
+  background-color: var(--grey-color-100);
+  border: none;
+  width: 100%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  height: 2.5rem;
+}
+
 /* store list */
 
 .store__list.open {
@@ -696,9 +740,11 @@ store-list .menu__item {
   padding-right: 1rem;
   font-weight: bold;
 }
+
 store-list .menu__item.ban {
   background-color: var(--grey-color-700);
 }
+
 store-list .store__box {
   display: flex;
   flex-direction: row;
@@ -820,7 +866,7 @@ footer-wrap .companyinfo {
   font-size: 0.8rem;
 }
 
-footer-wrap .companyinfo__item + .companyinfo__item::before {
+footer-wrap .companyinfo__item+.companyinfo__item::before {
   content: "|";
   padding-left: 0.3rem;
   padding-right: 0.3rem;
@@ -918,6 +964,7 @@ footer-wrap .companyinfo__item + .companyinfo__item::before {
     top: 0rem;
     font-size: 2rem;
   }
+
   .open {
     position: fixed !important;
   }

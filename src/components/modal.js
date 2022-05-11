@@ -1,7 +1,8 @@
 import Login from "./login.js";
 import Maplist from "./maplist.js";
 import Mypage from "./mypage.js";
-import Store from "./storelist.js"
+import Store from "./storelist.js";
+import Search from "./search.js";
 export default class Modal extends HTMLElement {
     connectedCallback() {
         this.class = 'address' + this.parentElement.id;
@@ -10,6 +11,8 @@ export default class Modal extends HTMLElement {
             <div class="${this.classtoid}" style="height:0%">
             <div id="${this.class}" style="-webkit-overflow-scrolling:touch;">
             </div>
+            </div>
+            <div class="search__container">
             </div>
             <div class="map__container">
             </div>
