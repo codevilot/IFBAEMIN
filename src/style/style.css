@@ -247,7 +247,7 @@ body-wrap .flex1 {
   width: calc(50% - 0.5rem);
 }
 
-body-wrap .flex1+.flex1 {
+body-wrap .flex1 + .flex1 {
   margin-left: 1rem;
 }
 
@@ -499,7 +499,7 @@ modal-wrap .x img {
 
 /* mypage */
 
-mypage-wrap>.maphead {
+mypage-wrap > .maphead {
   border-bottom: 1px solid var(--grey-color-400);
 }
 
@@ -676,8 +676,6 @@ mypage-wrap .childbox {
   visibility: visible;
 }
 
-
-
 .search__container {
   right: -50%;
   transition: all 0.5s;
@@ -745,7 +743,8 @@ store-list .menu__item.ban {
   background-color: var(--grey-color-700);
 }
 
-store-list .store__box {
+store-list .store__box,
+search-wrap .store__box {
   display: flex;
   flex-direction: row;
   padding-left: 1rem;
@@ -754,19 +753,22 @@ store-list .store__box {
   border-bottom: 1px solid var(--grey-color-200);
 }
 
-store-list .store__img {
+store-list .store__img,
+search-wrap .store__img {
   width: 6.5rem;
   height: 6.5rem;
 }
 
-store-list .store__name {
+store-list .store__name,
+search-wrap .store__name {
   font-size: 1.1rem;
   font-weight: bold;
   display: flex;
   align-items: center;
 }
 
-store-list .store__name .coupon {
+store-list .store__name .coupon,
+search-wrap .store__name .coupon {
   font-size: 0.8rem;
   color: white;
   background-color: var(--yellow-color-500);
@@ -776,7 +778,8 @@ store-list .store__name .coupon {
   margin-left: 0.5rem;
 }
 
-store-list .store__info {
+store-list .store__info,
+search-wrap .store__info {
   text-align: left;
   padding-left: 1rem;
   display: flex;
@@ -785,11 +788,13 @@ store-list .store__info {
   font-size: 1rem;
 }
 
-store-list .store__info * {
+store-list .store__info *,
+search-wrap .store__info * {
   padding-bottom: 0.5rem;
 }
 
-store-list .store__time {
+store-list .store__time,
+search-wrap .store__time {
   background-color: var(--grey-color-100);
   width: max-content;
   border-radius: 1rem;
@@ -797,7 +802,8 @@ store-list .store__time {
   padding-right: 0.5rem;
 }
 
-store-list .store__inner__menu {
+store-list .store__inner__menu,
+search-wrap .store__inner__menu {
   color: var(--grey-color-500);
 }
 
@@ -866,7 +872,7 @@ footer-wrap .companyinfo {
   font-size: 0.8rem;
 }
 
-footer-wrap .companyinfo__item+.companyinfo__item::before {
+footer-wrap .companyinfo__item + .companyinfo__item::before {
   content: "|";
   padding-left: 0.3rem;
   padding-right: 0.3rem;
