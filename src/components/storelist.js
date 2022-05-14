@@ -65,7 +65,6 @@ export default class Store extends HTMLElement {
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            // console.log(doc)
             const stores = this.querySelector(".stores");
             const div = document.createElement("div");
             stores.appendChild(div);

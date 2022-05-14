@@ -1,4 +1,7 @@
+import { globalState, observable } from "../server/observer.js";
 import { db } from "../server/firebase.js";
+import { createObserver } from "./oi.js";
+import debounce from "./debounce.js";
 export default class Search extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -11,21 +14,35 @@ export default class Search extends HTMLElement {
         <div class="stores">
         </div>
         </div>
+        <div class="oi preload">
+        </div>
         `;
+    const oi = this.querySelector(".oi");
+    const cont = this.querySelector("search-wrap");
+    const preload = this.querySelector(".preload");
+    const stores = this.querySelector(".stores");
     this.querySelector(".arrow").onclick = (e) =>
       this.parentElement.classList.remove("open");
-    this.querySelector(".temp").onclick = (e) => {
-      const stores = this.querySelector(".stores");
-      stores.innerHTML = ``;
+    this.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        stores.innerHTML = `
+      `;
+        listAdd();
+        objCont;
+        preload.classList.remove("preload");
+      }
+    });
+
+    const listAdd = () => {
       const keyword = this.querySelector("input").value;
       db.collection("store")
         .orderBy("name")
         .startAt(keyword)
+        .limit(5)
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             console.log(doc);
-
             const div = document.createElement("div");
             const img = `https://github.com/codevilot/IFBAEMIN/blob/main/src/assets/store/${
               doc.data().thumbnail || doc.data().name
@@ -33,7 +50,6 @@ export default class Search extends HTMLElement {
             stores.appendChild(div);
             div.classList.add("store__box");
             div.innerHTML = `
-
             <img class="store__img" src=${img}>
                     <div class="store__info">
                     <div class="store__name">${doc.data().name}${
@@ -61,6 +77,10 @@ export default class Search extends HTMLElement {
           });
         });
     };
+    const objCont = (cont, oi) => {
+      createObserver(cont, oi);
+    };
+    observable.subscribe(debounce(listAdd));
   }
 }
 customElements.define("search-wrap", Search);
