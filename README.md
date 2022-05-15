@@ -35,3 +35,6 @@ pc는 나란하게 #before, #after가 정렬되어 있다.
 
 # Infinite scroll
 <img style="width:25%" src="https://user-images.githubusercontent.com/18400730/167123480-fbe23b8d-19ea-42f1-90a4-93bfae8f4457.gif"/>
+
+# Search
+<img style="width:25%" src="https://user-images.githubusercontent.com/18400730/168475205-7b8818a2-9267-4cdd-8e1f-00526328e613.gif"/>
