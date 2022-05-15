@@ -8,7 +8,6 @@ export default class Search extends HTMLElement {
         <div class="maphead">
         <img class="arrow remove" src="./src/assets/svg/leftarrow.svg">
         <input class="search__store">
-        <img class="temp" src="./src/assets/svg/leftarrow.svg">
         </div>
         <div class="stores__wrap">
         <div class="stores">
@@ -38,11 +37,9 @@ export default class Search extends HTMLElement {
       db.collection("store")
         .orderBy("name")
         .startAt(keyword)
-        .limit(5)
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            console.log(doc);
             const div = document.createElement("div");
             const img = `https://github.com/codevilot/IFBAEMIN/blob/main/src/assets/store/${
               doc.data().thumbnail || doc.data().name
