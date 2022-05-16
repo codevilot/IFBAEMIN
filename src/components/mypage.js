@@ -17,7 +17,13 @@ export default class Mypage extends HTMLElement {
         <div class="myprofile">
         <img class="profile" src="./src/assets/svg/profile.svg">
         <div class="profile__id">
-        ${!auth.currentUser ? "로그인해주세요" : auth.currentUser.email}
+        ${
+          !auth.currentUser
+            ? "로그인해주세요"
+            : !auth.currentUser.displayName
+            ? auth.currentUser.email
+            : auth.currentUser.displayName
+        }
         </div>
         <img class="move" src="./src/assets/svg/rightarrow.svg">
         </div>
@@ -26,8 +32,8 @@ export default class Mypage extends HTMLElement {
         `;
 
     this.querySelector(".myprofile").onclick = (e) => {
+      const childbox = this.querySelector(".childbox");
       if (!auth.currentUser) {
-        const childbox = this.querySelector(".childbox");
         childbox.innerHTML = `<login-container> </login-container>`;
         childbox.classList.add("open");
         // login in set
@@ -50,9 +56,11 @@ export default class Mypage extends HTMLElement {
         });
       } else {
         //my profile
-        // this.querySelector('.childbox').innerHTML = ``
+        childbox.innerHTML = `<myinfo-container> </myinfo-container`;
+        childbox.classList.add("open");
       }
     };
+
     this.querySelector(".arrow").onclick = (e) =>
       this.parentElement.classList.remove("open");
   }

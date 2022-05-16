@@ -3,11 +3,12 @@ import Maplist from "./maplist.js";
 import Mypage from "./mypage.js";
 import Store from "./storelist.js";
 import Search from "./search.js";
+import Myinfo from "./myinfo.js";
 export default class Modal extends HTMLElement {
-    connectedCallback() {
-        this.class = 'address' + this.parentElement.id;
-        this.classtoid = 'classtoid' + this.parentElement.id;
-        this.innerHTML = `
+  connectedCallback() {
+    this.class = "address" + this.parentElement.id;
+    this.classtoid = "classtoid" + this.parentElement.id;
+    this.innerHTML = `
             <div class="${this.classtoid}" style="height:0%">
             <div id="${this.class}" style="-webkit-overflow-scrolling:touch;">
             </div>
@@ -20,9 +21,8 @@ export default class Modal extends HTMLElement {
             </div>
             <div class="store__list">
             </div>
-        `
-    }
-
+        `;
+  }
 }
 
-customElements.define('modal-wrap', Modal);
+customElements.define("modal-wrap", Modal);
