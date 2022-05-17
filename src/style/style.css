@@ -663,7 +663,23 @@ mypage-wrap .childbox {
   right: -50%;
   visibility: hidden;
 }
-
+/* myinfo */
+myinfo-container .update {
+  width: 2rem;
+  height: 1.7rem;
+  line-height: 1.7rem;
+  font-size: 1rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  font-weight: bold;
+}
+myinfo-container .nameInput {
+  height: 2rem;
+  border: 1px solid var(--grey-color-400);
+  padding-left: 0.8rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
 /* search container */
 .search__container.open {
   top: 3rem;
