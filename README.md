@@ -38,3 +38,10 @@ pc는 나란하게 #before, #after가 정렬되어 있다.
 
 # Search
 <img style="width:25%" src="https://user-images.githubusercontent.com/18400730/168475205-7b8818a2-9267-4cdd-8e1f-00526328e613.gif"/>
+
+# Nickname Change
+<img style="width:25%" src="https://user-images.githubusercontent.com/18400730/168986060-5a3f7ad5-e894-44a8-81d3-1db0efbc3bb4.gif"/>
+
+가입의 편의성을 위해 처음 닉네임은 null 하지만 눈에 보이기에는 이메일 주소로 보이게 하였다.
+mypage에서 닉네임 수정 화살표를 누르면 myinfo로 이동하고 닉네임을 입력한 뒤 수정을 누르면 myinfo가 닫히면서 프록시로 닉네임을 전달한다
+mypage의 닉네임도 변경
