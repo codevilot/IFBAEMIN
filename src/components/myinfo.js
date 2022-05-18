@@ -1,3 +1,4 @@
+import { globalState } from "../server/observer.js";
 import { auth } from "../server/firebase.js";
 export default class Myinfo extends HTMLElement {
   connectedCallback() {
@@ -26,9 +27,13 @@ export default class Myinfo extends HTMLElement {
           displayName: this.displayName,
         })
         .then(() => {
-          console.log("Update your name", this.displayName);
+          globalState.nickname = this.displayName;
         });
+      this.parentElement.classList.remove("open");
     };
+
+    this.querySelector(".arrow").onclick = (e) =>
+      this.parentElement.classList.remove("open");
   }
 }
 customElements.define("myinfo-container", Myinfo);

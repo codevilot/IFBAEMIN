@@ -1,4 +1,5 @@
 import { auth } from "../server/firebase.js";
+import { globalState, observable } from "../server/observer.js";
 export default class Mypage extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -60,9 +61,12 @@ export default class Mypage extends HTMLElement {
         childbox.classList.add("open");
       }
     };
-
+    const nicknameRefresh = () => {
+      this.querySelector(".profile__id").innerHTML = globalState.nickname;
+    };
     this.querySelector(".arrow").onclick = (e) =>
       this.parentElement.classList.remove("open");
+    observable.subscribe(nicknameRefresh);
   }
 }
 
